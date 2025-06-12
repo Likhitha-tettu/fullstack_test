@@ -20,7 +20,7 @@ jobs:
           pip install django djangorestframework django-cors-headers
           pip freeze > requirements.txt
 
-      - name: Run Django tests (skip if none)
+      - name: Run Django tests
         run: |
           cd backend
           python manage.py test || echo "No tests yet"

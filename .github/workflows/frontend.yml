@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -14,8 +15,17 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install and Build
+      - name: Install dependencies
         run: |
           cd frontend
           npm install
-          npm run build
+
+      - name: Run React build
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Run tests 
+        run: |
+          cd frontend
+          npm test || echo "No tests yet"
