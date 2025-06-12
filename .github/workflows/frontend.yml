@@ -18,14 +18,14 @@ jobs:
       - name: Install dependencies
         run: |
           cd frontend
-          npm install
+          npm ci
 
-      - name: Run React build
+      - name: Build React App
         run: |
           cd frontend
-          npm run build
+          npx react-scripts build
 
-      - name: Run tests 
+      - name: Run tests
         run: |
           cd frontend
-          npm test || echo "No tests yet"
+          npx react-scripts test --watchAll=false || echo "No tests yet"
