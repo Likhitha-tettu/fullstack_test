@@ -1,26 +1,21 @@
 name: React Frontend CI
 
-on:
-  push:
-    paths:
-      - 'frontend/**'
-  pull_request:
-    paths:
-      - 'frontend/**'
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install and Build React App
+      - name: Install and Build
         run: |
           cd frontend
           npm install
-          npm run build
+          npm run build
